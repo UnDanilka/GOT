@@ -1,9 +1,9 @@
 import React from 'react';
 import {Col, Row, Container} from 'reactstrap';
-import Header from '../header';
-import RandomChar from '../randomChar';
-import ItemList from '../itemList';
-import CharDetails from '../charDetails';
+import Header from '../header/header';
+import RandomChar from '../randomChar/randomChar';
+import ItemList from '../itemList/itemList';
+import CharDetails from '../charDetails/charDetails';
 
 
 const App = () => {
