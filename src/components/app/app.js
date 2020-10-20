@@ -3,9 +3,11 @@ import {Col, Row, Container, Button} from 'reactstrap';
 import Header from '../header/header';
 import RandomChar from '../randomChar/randomChar';
 import ErrorMessage from '../errorMessage/errorMessage';
-import CharacterPage from '../characterPage/characterPage';
-import ItemList from '../itemList/itemList';
-import CharDetails from '../charDetails/charDetails';
+import CharacterPage from '../pages/characterPage/characterPage';
+import BooksPage from '../pages/booksPage/booksPage';
+import HousesPage from '../pages/housesPage/housesPage';
+// import ItemList from '../itemList/itemList';
+// import CharDetails from '../itemDetails/itemDetails';
 import gotService from '../../services/gotService';
 
 
@@ -16,7 +18,8 @@ export default class App extends React.Component {
     
     state={
         hide:false,
-        error: false
+        error: false,
+        selectedHouse: 20
     }
 
     componentDidCatch(){
@@ -54,30 +57,8 @@ export default class App extends React.Component {
                     </Col>
                 </Row>
                 <CharacterPage/>
-                <Row>
-                    <Col md='6'>
-                        <ItemList 
-                        onItemSelected={this.onItemSelected}
-                        getData={this.gotService.getAllBooks}
-                        renderItem={(item)=> item.name}
-                        />
-                    </Col>
-                    <Col md='6'>
-                        <CharDetails charId={this.state.selectedChar}/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col md='6'>
-                        <ItemList 
-                        onItemSelected={this.onItemSelected}
-                        getData={this.gotService.getAllHouses}
-                        renderItem={(item)=> item.name}
-                        />
-                    </Col>
-                    <Col md='6'>
-                        <CharDetails charId={this.state.selectedChar}/>
-                    </Col>
-                </Row>
+                <BooksPage/>
+                <HousesPage/>
             </Container>
         </>
         )    
